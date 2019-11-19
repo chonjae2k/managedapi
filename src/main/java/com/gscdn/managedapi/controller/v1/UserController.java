@@ -25,6 +25,8 @@ import com.gscdn.managedapi.repo.UserJpaRepo;
 import com.gscdn.managedapi.service.ResponseService;
 
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 
@@ -38,6 +40,9 @@ public class UserController {
 	@Autowired
 	private ResponseService responseService;
 	
+	@ApiImplicitParams({
+        @ApiImplicitParam(name = "X-AUTH-TOKEN", value = "로그인 성공 후 access_token", required = true, dataType = "String", paramType = "header")
+	})
 	@ApiOperation(value = "회원전체조회", notes = "모든 회원 조회")
 	@GetMapping(value = "/user")
     public ListResult<User> findAllUser() {
