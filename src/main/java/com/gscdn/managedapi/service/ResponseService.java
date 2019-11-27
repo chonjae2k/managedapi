@@ -70,4 +70,5 @@ public class ResponseService {
 		result.setCode(CommonResponse.SUCCESS.getCode());
 		result.setMsg(CommonResponse.SUCCESS.getMsg());
 	}
+	
 }
